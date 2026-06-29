@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3G1Y193VRP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3G1Y193VRP');
+  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Scrappy Stacks</title>
+<style>
+  :root{
+    --white:#FFFFFF;
+    --cloud:#F4F6FB;
+    --cloud-line:#E4E7EF;
+    --ink:#1A1F36;
+    --ink-soft:#5A6072;
+    --ink-faint:#9A9FAE;
+    --indigo:#4F5BFF;
+    --indigo-dark:#3A44CC;
+    --indigo-bg:#EDEEFF;
+    --coral:#FF6F59;
+    --coral-dark:#C2422E;
+    --coral-bg:#FFEDE9;
+    --mint:#1FC8A0;
+    --mint-dark:#0E8064;
+    --mint-bg:#E6FAF3;
+    --gold:#FFC542;
+    --gold-dark:#92670A;
+    --gold-bg:#FFF6E0;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Archivo Black','Arial Black',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .label{
+    font-family:'JetBrains Mono','Courier New',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.72rem;
+    font-weight:700;
+    color:var(--ink-faint);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  :focus-visible{outline:3px solid var(--indigo); outline-offset:2px;}
+
+  .nav{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:26px 24px 10px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Archivo Black',sans-serif;
+    font-size:1.15rem;
+    text-decoration:none;
+  }
+  .logo-mark{
+    width:30px;height:30px;
+    background:var(--indigo);
+    border-radius:8px;
+    position:relative;
+  }
+  .logo-mark::after{
+    content:"";
+    position:absolute;
+    top:7px;left:50%;
+    width:6px;height:6px;
+    background:#fff;
+    border-radius:50%;
+    transform:translateX(-50%);
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    font-weight:600;
+    font-size:0.95rem;
+  }
+  .nav-links a{text-decoration:none; border-bottom:2px solid transparent; padding-bottom:2px;}
+  .nav-links a:hover{border-bottom-color:var(--indigo);}
+  .nav-links a.current{border-bottom-color:var(--indigo);}
+
+  .page-head{
+    background:var(--cloud);
+    border-bottom:1px solid var(--cloud-line);
+  }
+  .page-head-inner{
+    max-width:1100px;
+    margin:0 auto;
+    padding:50px 24px 60px;
+  }
+  .page-head h1{
+    font-size:clamp(2rem, 4vw, 2.8rem);
+    margin-top:10px;
+  }
+  .page-head p{
+    color:var(--ink-soft);
+    font-size:1.05rem;
+    max-width:520px;
+    margin-top:16px;
+    line-height:1.55;
+  }
+
+  .posts{
+    max-width:1100px;
+    margin:0 auto;
+    padding:60px 24px 100px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+  }
+  .post-card{
+    background:var(--card);
+    border:1px solid var(--cloud-line);
+    border-radius:14px;
+    padding:26px;
+    text-decoration:none;
+    display:block;
+    transition:box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .post-card:hover{
+    box-shadow:0 10px 24px rgba(26,31,54,0.08);
+    transform:translateY(-2px);
+  }
+  .post-card .tag{
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--indigo-dark);
+    background:var(--indigo-bg);
+    padding:5px 11px;
+    border-radius:20px;
+    margin-bottom:14px;
+  }
+  .post-card h3{
+    font-size:1.25rem;
+    margin-bottom:10px;
+    line-height:1.25;
+  }
+  .post-card p{
+    font-size:0.95rem;
+    color:var(--ink-soft);
+    line-height:1.55;
+    margin:0 0 14px;
+  }
+  .post-card .meta{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.75rem;
+    color:var(--ink-faint);
+  }
+  .post-card.empty{
+    border-style:dashed;
+    color:var(--ink-faint);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:0.9rem;
+  }
+
+  footer{
+    border-top:1px solid var(--cloud-line);
+    padding:32px 24px;
+    text-align:center;
+  }
+  footer p{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--ink-faint);
+    margin:0;
+  }
+
+  @media (max-width:700px){
+    .posts{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <nav class="nav">
+    <a class="logo" href="/"><div class="logo-mark"></div>Scrappy Stacks</a>
+    <div class="nav-links">
+      <a href="/#categories">Tools</a>
+      <a href="/blog/" class="current">Blog</a>
+      <a href="/#newsletter">Newsletter</a>
+      <a href="/#suggest">Suggest a tool</a>
+    </div>
+  </nav>
+  <div class="page-head-inner">
+    <div class="label">The Scrappy Stacks blog</div>
+    <h1>Plain talk about running a one-person business.</h1>
+    <p>No founder-speak, no growth-hacking. Just the stuff that actually helps when you're the only one doing the books, the booking, and the work.</p>
+  </div>
+</div>
+
+<section class="posts">
+  <a class="post-card" href="/blog/wave-invoicing-first-client.html">
+    <span class="tag">Accounting</span>
+    <h3>How to send your first invoice without overthinking it</h3>
+    <p>A walk-through of getting paid for the first time using Wave — no accounting background required.</p>
+    <span class="meta">5 MIN READ</span>
+  </a>
+
+  <div class="post-card empty">More posts coming soon.</div>
+</section>
+
+<footer>
+  <p>SCRAPPY STACKS · A FREE TOOL SHELF FOR FIRST-TIME FOUNDERS · SOME LINKS ABOVE ARE AFFILIATE LINKS</p>
+</footer>
+
+</body>
+</html>
