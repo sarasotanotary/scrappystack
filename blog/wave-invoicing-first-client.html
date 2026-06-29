@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3G1Y193VRP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3G1Y193VRP');
+  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to send your first invoice without overthinking it — Scrappy Stacks</title>
+<meta name="description" content="A plain walk-through of sending your first invoice with Wave, free invoicing software, no accounting background required.">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --cloud:#F4F6FB;
+    --cloud-line:#E4E7EF;
+    --ink:#1A1F36;
+    --ink-soft:#5A6072;
+    --ink-faint:#9A9FAE;
+    --indigo:#4F5BFF;
+    --indigo-dark:#3A44CC;
+    --indigo-bg:#EDEEFF;
+    --mint:#1FC8A0;
+    --mint-dark:#0E8064;
+    --mint-bg:#E6FAF3;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Archivo Black','Arial Black',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .label{
+    font-family:'JetBrains Mono','Courier New',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.72rem;
+    font-weight:700;
+    color:var(--ink-faint);
+  }
+  a{color:var(--indigo-dark);}
+  img{max-width:100%;display:block;}
+
+  .nav{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:26px 24px 10px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Archivo Black',sans-serif;
+    font-size:1.15rem;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .logo-mark{
+    width:30px;height:30px;
+    background:var(--indigo);
+    border-radius:8px;
+    position:relative;
+  }
+  .logo-mark::after{
+    content:"";
+    position:absolute;
+    top:7px;left:50%;
+    width:6px;height:6px;
+    background:#fff;
+    border-radius:50%;
+    transform:translateX(-50%);
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    font-weight:600;
+    font-size:0.95rem;
+  }
+  .nav-links a{color:var(--ink); text-decoration:none; border-bottom:2px solid transparent; padding-bottom:2px;}
+  .nav-links a:hover{border-bottom-color:var(--indigo);}
+
+  article{
+    max-width:680px;
+    margin:0 auto;
+    padding:50px 24px 30px;
+  }
+  .post-meta{
+    margin-bottom:18px;
+  }
+  article h1{
+    font-size:clamp(1.9rem,4vw,2.6rem);
+    line-height:1.15;
+    margin-top:12px;
+  }
+  .byline{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    color:var(--ink-faint);
+    margin-top:16px;
+  }
+  .post-body{
+    max-width:680px;
+    margin:0 auto;
+    padding:10px 24px 70px;
+    font-size:1.08rem;
+    line-height:1.7;
+    color:var(--ink);
+  }
+  .post-body p{margin:0 0 22px;}
+  .post-body h2{
+    font-size:1.4rem;
+    margin:40px 0 16px;
+  }
+  .post-body ul, .post-body ol{
+    margin:0 0 22px;
+    padding-left:22px;
+    line-height:1.7;
+  }
+  .post-body li{margin-bottom:8px;}
+  .callout{
+    background:var(--mint-bg);
+    border-left:3px solid var(--mint);
+    border-radius:8px;
+    padding:18px 20px;
+    margin:0 0 26px;
+    font-size:0.98rem;
+    color:var(--ink-soft);
+  }
+  .post-cta{
+    background:var(--indigo-bg);
+    border-radius:14px;
+    padding:30px;
+    text-align:center;
+    margin-top:20px;
+  }
+  .post-cta p{
+    margin:0 0 16px;
+    color:var(--ink-soft);
+  }
+  .btn{
+    font-weight:700;
+    font-size:0.95rem;
+    padding:13px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    display:inline-block;
+    background:var(--indigo);
+    color:#fff !important;
+  }
+  .back-link{
+    display:inline-block;
+    margin-top:30px;
+    font-size:0.9rem;
+    font-weight:600;
+    text-decoration:none;
+  }
+
+  footer{
+    border-top:1px solid var(--cloud-line);
+    padding:32px 24px;
+    text-align:center;
+  }
+  footer p{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--ink-faint);
+    margin:0;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="logo" href="/"><div class="logo-mark"></div>Scrappy Stacks</a>
+  <div class="nav-links">
+    <a href="/#categories">Tools</a>
+    <a href="/blog/">Blog</a>
+    <a href="/#newsletter">Newsletter</a>
+  </div>
+</nav>
+
+<article>
+  <div class="post-meta">
+    <span class="label">Accounting &amp; invoicing</span>
+    <h1>How to send your first invoice without overthinking it</h1>
+    <div class="byline">SCRAPPY STACKS · 5 MIN READ</div>
+  </div>
+</article>
+
+<div class="post-body">
+  <p>The first invoice is the one that takes the longest, mostly because you're not sure what's actually supposed to be on it. The good news: it's a name, an amount, and a due date. Everything else is optional polish.</p>
+
+  <p>Here's how to get one out the door today using Wave, which is free invoicing software with no monthly fee.</p>
+
+  <h2>1. Set up your business profile once</h2>
+  <p>Before your first invoice, Wave asks for your business name, address, and logo if you have one. This only happens once — it gets reused on every invoice after, so it's worth the five minutes now.</p>
+
+  <h2>2. Add your client</h2>
+  <p>Just a name and an email is enough to start. You can add more later if you end up working with them again.</p>
+
+  <h2>3. List what you did, not what you are</h2>
+  <p>Skip the job title. Write the actual work: "Deep clean, 3-bedroom house" or "Logo design, 2 revisions" tells the client exactly what they're paying for and cuts down on back-and-forth questions.</p>
+
+  <div class="callout">
+    If you're not sure what to charge, round to a number you'd be comfortable saying out loud on the phone. Invoices feel more official than conversations, but the number is the same.
+  </div>
+
+  <h2>4. Set a due date — don't leave it blank</h2>
+  <p>"Due on receipt" is fine for a first-time client. Net 15 or Net 30 is more standard if you're working with a business that has its own payment process.</p>
+
+  <h2>5. Turn on online payment if you want to get paid faster</h2>
+  <p>Wave can attach a "pay now" button straight on the invoice. There's a small per-transaction fee, but for a first invoice with a new client, it usually beats waiting on a check.</p>
+
+  <p>That's it. Hit send. The first one is the only one that feels like a big decision — after that it's just part of how the work gets done.</p>
+
+  <div class="post-cta">
+    <p>Wave is free forever for invoicing — no subscription, no trial that runs out.</p>
+    <a class="btn" href="/#categories">See it on the shelf →</a>
+  </div>
+
+  <a class="back-link" href="/blog/">← Back to all posts</a>
+</div>
+
+<footer>
+  <p>SCRAPPY STACKS · A FREE TOOL SHELF FOR FIRST-TIME FOUNDERS · SOME LINKS ABOVE ARE AFFILIATE LINKS</p>
+</footer>
+
+</body>
+</html>
