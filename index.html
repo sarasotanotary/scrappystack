@@ -11,7 +11,7 @@
   </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scrappy Stack — Free & cheap tools to start your own thing</title>
+<title>Scrappy Stacks — Free & cheap tools to start your own thing</title>
 <style>
   :root{
     --white:#FFFFFF;
@@ -324,13 +324,67 @@
     line-height:1.5;
     margin:0 0 14px;
   }
-  .tool-card .go{
+  .tool-card .go;
     font-size:0.85rem;
     font-weight:700;
     color:var(--indigo);
     text-decoration:none;
   }
   .tool-card .go:hover{ text-decoration:underline; }
+
+  .newsletter-wrap{
+    background:var(--indigo-bg);
+    border-top:1px solid var(--cloud-line);
+    border-bottom:1px solid var(--cloud-line);
+  }
+  .newsletter{
+    max-width:760px;
+    margin:0 auto;
+    padding:70px 24px;
+    text-align:center;
+  }
+  .newsletter h2{
+    font-size:clamp(1.7rem,3vw,2.2rem);
+    margin:12px 0 14px;
+  }
+  .newsletter p{
+    color:var(--ink-soft);
+    font-size:1.02rem;
+    line-height:1.55;
+    margin:0 auto 30px;
+    max-width:480px;
+  }
+  .newsletter-form{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .newsletter-form input{
+    flex:1 1 260px;
+    padding:14px 16px;
+    border-radius:10px;
+    border:1px solid var(--cloud-line);
+    font-family:inherit;
+    font-size:0.95rem;
+    background:var(--white);
+    color:var(--ink);
+  }
+  .newsletter-form input:focus{
+    outline:none;
+    border-color:var(--indigo);
+    box-shadow:0 0 0 3px var(--white);
+  }
+  .newsletter-form .btn{
+    flex:0 0 auto;
+    border:none;
+    cursor:pointer;
+  }
+  .newsletter-fine{
+    margin-top:16px !important;
+    font-size:0.78rem !important;
+    color:var(--ink-faint) !important;
+  }
 
   .suggest{
     max-width:760px;
@@ -410,10 +464,11 @@
 
 <div class="hero-wrap">
   <nav class="nav">
-    <div class="logo"><div class="logo-mark"></div>Scrappy Stack</div>
+    <div class="logo"><div class="logo-mark"></div>Scrappy Stacks</div>
     <div class="nav-links">
       <a href="#categories">Tools</a>
-      <a href="#why">Why this exists</a>
+      <a href="/blog/">Blog</a>
+      <a href="#newsletter">Newsletter</a>
       <a href="#suggest">Suggest a tool</a>
     </div>
   </nav>
@@ -611,6 +666,20 @@
   </div>
 </section>
 
+<div class="newsletter-wrap" id="newsletter">
+  <div class="newsletter">
+    <div class="label">One new tool a month, that's it</div>
+    <h2>Get the next free tool before you need it</h2>
+    <p>No daily emails, no sales pitches — once a month we send one tool worth knowing about, picked the same way everything on this shelf is.</p>
+    <form class="newsletter-form" action="https://formspree.io/f/mrewkjkb" method="POST">
+      <input type="hidden" name="_subject" value="New Scrappy Stacks newsletter signup">
+      <input type="email" name="email" placeholder="Your email" required>
+      <button class="btn btn-primary" type="submit">Sign me up</button>
+    </form>
+    <p class="newsletter-fine">One email a month. Unsubscribe whenever.</p>
+  </div>
+</div>
+
 <section class="suggest" id="suggest">
   <div class="label">Know one we're missing?</div>
   <h2>Suggest a tool for the shelf</h2>
@@ -623,7 +692,7 @@
 </section>
 
 <footer>
-  <p>SCRAPPY STACK · A FREE TOOL SHELF FOR FIRST-TIME FOUNDERS · SOME LINKS ABOVE ARE AFFILIATE LINKS</p>
+  <p>SCRAPPY STACKS · A FREE TOOL SHELF FOR FIRST-TIME FOUNDERS · SOME LINKS ABOVE ARE AFFILIATE LINKS</p>
 </footer>
 
 </body>
