@@ -12,228 +12,166 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog — Scrappy Stacks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
 <style>
   :root{
-    --white:#FFFFFF;
-    --cloud:#F4F6FB;
-    --cloud-line:#E4E7EF;
-    --ink:#1A1F36;
-    --ink-soft:#5A6072;
-    --ink-faint:#9A9FAE;
-    --indigo:#4F5BFF;
-    --indigo-dark:#3A44CC;
-    --indigo-bg:#EDEEFF;
-    --coral:#FF6F59;
-    --coral-dark:#C2422E;
-    --coral-bg:#FFEDE9;
-    --mint:#1FC8A0;
-    --mint-dark:#0E8064;
-    --mint-bg:#E6FAF3;
-    --gold:#FFC542;
-    --gold-dark:#92670A;
-    --gold-bg:#FFF6E0;
-    --card:#FFFFFF;
+    --desk:#E8E4D8;
+    --paper:#FFFCEA;
+    --rule:#AFCBE8;
+    --margin:#D9534F;
+    --ink:#23324A;
+    --ink-soft:#46506B;
+    --ink-faint:#8A8F7E;
+    --check:#3F7D52;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--white);
+    background:var(--desk);
     color:var(--ink);
-    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    -webkit-font-smoothing:antialiased;
+    font-family:'Patrick Hand', cursive;
   }
   h1,h2,h3{
-    font-family:'Archivo Black','Arial Black',sans-serif;
+    font-family:'Kalam', cursive;
+    font-weight:700;
     margin:0;
-    letter-spacing:-0.01em;
     color:var(--ink);
   }
-  .label{
-    font-family:'JetBrains Mono','Courier New',monospace;
-    text-transform:uppercase;
-    letter-spacing:0.12em;
-    font-size:0.72rem;
-    font-weight:700;
-    color:var(--ink-faint);
+  a{color:var(--ink);}
+
+  .paper{
+    position:relative;
+    max-width:780px;
+    margin:36px auto;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(
+      to bottom, transparent 0, transparent 35px, var(--rule) 35px, var(--rule) 37px
+    );
+    box-shadow:0 14px 40px rgba(35,50,74,0.18);
+    border-radius:3px;
   }
-  a{color:inherit;}
-  img{max-width:100%;display:block;}
-  :focus-visible{outline:3px solid var(--indigo); outline-offset:2px;}
+  .paper::before{
+    content:"";
+    position:absolute;
+    top:0; bottom:0; left:66px;
+    width:2px;
+    background:var(--margin);
+    opacity:0.85;
+  }
+  .inner{ padding:30px 34px 30px 92px; }
 
   .nav{
-    max-width:1100px;
-    margin:0 auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:26px 24px 10px;
+    padding:8px 0 6px;
   }
   .logo{
     display:flex;
     align-items:center;
-    gap:10px;
-    font-family:'Archivo Black',sans-serif;
-    font-size:1.15rem;
+    gap:8px;
+    font-family:'Kalam',cursive;
+    font-weight:700;
+    font-size:1.25rem;
     text-decoration:none;
+    color:var(--ink);
   }
   .logo-mark{
-    width:30px;height:30px;
-    background:var(--indigo);
-    border-radius:8px;
-    position:relative;
-  }
-  .logo-mark::after{
-    content:"";
-    position:absolute;
-    top:7px;left:50%;
-    width:6px;height:6px;
-    background:#fff;
+    width:16px;height:16px;
     border-radius:50%;
-    transform:translateX(-50%);
+    background:var(--margin);
+    box-shadow:0 0 0 2px var(--paper), 0 0 0 3px var(--ink-faint);
   }
-  .nav-links{
-    display:flex;
-    gap:28px;
-    font-weight:600;
-    font-size:0.95rem;
-  }
-  .nav-links a{text-decoration:none; border-bottom:2px solid transparent; padding-bottom:2px;}
-  .nav-links a:hover{border-bottom-color:var(--indigo);}
-  .nav-links a.current{border-bottom-color:var(--indigo);}
+  .nav-links{ display:flex; gap:20px; font-size:1rem; }
+  .nav-links a{text-decoration:none; border-bottom:2px dashed transparent;}
+  .nav-links a:hover, .nav-links a.current{border-bottom-color:var(--margin);}
 
-  .page-head{
-    background:var(--cloud);
-    border-bottom:1px solid var(--cloud-line);
-  }
-  .page-head-inner{
-    max-width:1100px;
-    margin:0 auto;
-    padding:50px 24px 60px;
-  }
-  .page-head h1{
-    font-size:clamp(2rem, 4vw, 2.8rem);
-    margin-top:10px;
-  }
-  .page-head p{
-    color:var(--ink-soft);
-    font-size:1.05rem;
-    max-width:520px;
-    margin-top:16px;
-    line-height:1.55;
-  }
-
-  .posts{
-    max-width:1100px;
-    margin:0 auto;
-    padding:60px 24px 100px;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
-  }
-  .post-card{
-    background:var(--card);
-    border:1px solid var(--cloud-line);
-    border-radius:14px;
-    padding:26px;
-    text-decoration:none;
-    display:block;
-    transition:box-shadow 0.15s ease, transform 0.15s ease;
-  }
-  .post-card:hover{
-    box-shadow:0 10px 24px rgba(26,31,54,0.08);
-    transform:translateY(-2px);
-  }
-  .post-card .tag{
-    display:inline-block;
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.7rem;
+  .page-head{ padding:22px 0 8px; }
+  .page-head .label{
+    font-family:'Kalam',cursive;
     font-weight:700;
+    font-size:0.85rem;
     text-transform:uppercase;
-    letter-spacing:0.08em;
-    color:var(--indigo-dark);
-    background:var(--indigo-bg);
-    padding:5px 11px;
-    border-radius:20px;
-    margin-bottom:14px;
+    letter-spacing:0.06em;
+    color:var(--margin);
   }
-  .post-card h3{
-    font-size:1.25rem;
-    margin-bottom:10px;
-    line-height:1.25;
-  }
-  .post-card p{
-    font-size:0.95rem;
-    color:var(--ink-soft);
-    line-height:1.55;
-    margin:0 0 14px;
-  }
-  .post-card .meta{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.75rem;
-    color:var(--ink-faint);
-  }
-  .post-card.empty{
-    border-style:dashed;
-    color:var(--ink-faint);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    font-size:0.9rem;
-  }
+  .page-head h1{ font-size:clamp(1.8rem,4vw,2.3rem); margin-top:8px; line-height:1.25; }
+  .page-head p{ color:var(--ink-soft); margin-top:10px; max-width:480px; font-size:1.05rem; line-height:1.55; }
 
-  footer{
-    border-top:1px solid var(--cloud-line);
-    padding:32px 24px;
-    text-align:center;
-  }
-  footer p{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.72rem;
-    letter-spacing:0.08em;
-    color:var(--ink-faint);
-    margin:0;
-  }
+  .tear{ border:none; border-top:2px dashed var(--ink-faint); margin:24px 0; }
 
-  @media (max-width:700px){
-    .posts{grid-template-columns:1fr;}
+  .posts{ padding:10px 0 20px; }
+  .post-row{
+    display:block;
+    text-decoration:none;
+    padding:14px 0;
+  }
+  .post-row .tag{
+    font-family:'Kalam',cursive;
+    font-weight:700;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    color:var(--margin);
+  }
+  .post-row h3{ font-size:1.3rem; margin-top:6px; line-height:1.3; }
+  .post-row p{ color:var(--ink-soft); margin-top:6px; font-size:1.02rem; line-height:1.5; max-width:560px; }
+  .post-row .meta{ font-size:0.85rem; color:var(--ink-faint); margin-top:6px; display:block; }
+  .post-row .check{ color:var(--check); font-weight:700; margin-right:6px; }
+  .empty-note{ color:var(--ink-faint); font-size:1rem; padding:14px 0; }
+
+  footer{ padding:18px 0 6px; }
+  footer p{ font-size:0.85rem; color:var(--ink-faint); margin:0; }
+
+  @media (max-width:600px){
+    .inner{ padding:24px 18px 24px 56px; }
+    .paper::before{ left:38px; }
   }
 </style>
 </head>
 <body>
 
-<div class="page-head">
-  <nav class="nav">
-    <a class="logo" href="/"><div class="logo-mark"></div>Scrappy Stacks</a>
-    <div class="nav-links">
-      <a href="/#categories">Tools</a>
-      <a href="/blog/" class="current">Blog</a>
-      <a href="/#newsletter">Newsletter</a>
-      <a href="/#suggest">Suggest a tool</a>
+<div class="paper">
+  <div class="inner">
+
+    <nav class="nav">
+      <a class="logo" href="/"><span class="logo-mark"></span>Scrappy Stacks</a>
+      <div class="nav-links">
+        <a href="/#categories">Tools</a>
+        <a href="/blog/" class="current">Blog</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/#suggest">Suggest</a>
+      </div>
+    </nav>
+
+    <div class="page-head">
+      <div class="label">The Scrappy Stacks blog</div>
+      <h1>Plain talk about running a one-person business.</h1>
+      <p>No founder-speak, no growth-hacking. Just the stuff that actually helps when you're the only one doing the books, the booking, and the work.</p>
     </div>
-  </nav>
-  <div class="page-head-inner">
-    <div class="label">The Scrappy Stacks blog</div>
-    <h1>Plain talk about running a one-person business.</h1>
-    <p>No founder-speak, no growth-hacking. Just the stuff that actually helps when you're the only one doing the books, the booking, and the work.</p>
+
+    <hr class="tear">
+
+    <div class="posts">
+      <a class="post-row" href="/blog/wave-invoicing-first-client.html">
+        <span class="tag">Accounting</span>
+        <h3><span class="check">✓</span>How to send your first invoice without overthinking it</h3>
+        <p>A walk-through of getting paid for the first time using Wave — no accounting background required.</p>
+        <span class="meta">5 min read</span>
+      </a>
+      <hr class="tear">
+      <p class="empty-note">More posts coming soon.</p>
+    </div>
+
+    <hr class="tear">
+
+    <footer>
+      <p>SCRAPPY STACKS · A FREE TOOL SHELF FOR FIRST-TIME FOUNDERS · SOME LINKS ABOVE ARE AFFILIATE LINKS</p>
+    </footer>
+
   </div>
 </div>
-
-<section class="posts">
-  <a class="post-card" href="/blog/wave-invoicing-first-client.html">
-    <span class="tag">Accounting</span>
-    <h3>How to send your first invoice without overthinking it</h3>
-    <p>A walk-through of getting paid for the first time using Wave — no accounting background required.</p>
-    <span class="meta">5 MIN READ</span>
-  </a>
-
-  <div class="post-card empty">More posts coming soon.</div>
-</section>
-
-<footer>
-  <p>SCRAPPY STACKS · A FREE TOOL SHELF FOR FIRST-TIME FOUNDERS · SOME LINKS ABOVE ARE AFFILIATE LINKS</p>
-</footer>
 
 </body>
 </html>
